@@ -92,7 +92,7 @@ document.getElementById('gate').addEventListener('click',function(){
 function rnd(s){return()=>{s=(s*16807)%2147483647;return s/2147483647}}
 
 const fc=document.getElementById('fog'),fx=fc.getContext('2d');let FW=200,FH=120,fimg;
-function fogSize(){FW=240;FH=Math.max(100,Math.round(240*innerHeight/innerWidth));fc.width=FW;fc.height=FH;fimg=fx.createImageData(FW,FH)}
+function fogSize(){const vw=innerWidth||document.documentElement.clientWidth||1,vh=innerHeight||document.documentElement.clientHeight||1;FW=240;FH=Math.max(100,Math.min(520,Math.round(240*vh/vw)||100));fc.width=FW;fc.height=FH;fimg=fx.createImageData(FW,FH)}
 fogSize();addEventListener('resize',fogSize);
 const P=new Uint8Array(512);{const r=rnd(13),p=[...Array(256).keys()];for(let i=255;i>0;i--){const j=Math.floor(r()*(i+1));[p[i],p[j]]=[p[j],p[i]]}for(let i=0;i<512;i++)P[i]=p[i&255]}
 function vn(x,y){const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi,u=xf*xf*(3-2*xf),v=yf*yf*(3-2*yf);
@@ -160,7 +160,7 @@ setInterval(()=>mqs.forEach(m=>{if(m.hov)return;const W=m.el.clientWidth,S=m.s.o
 if(m.dir<0&&m.x<-S)m.x=W;if(m.dir>0&&m.x>W)m.x=-S;m.s.style.transform='translateX('+m.x+'px)'}),70);
 
 const bc=document.getElementById('bolt'),bx=bc.getContext('2d');
-function strike(){bc.width=Math.round(innerWidth/3);bc.height=Math.round(innerHeight/3);const W=bc.width,H=bc.height;
+function strike(){bc.width=Math.max(1,Math.round((innerWidth||300)/3));bc.height=Math.max(1,Math.round((innerHeight||600)/3));const W=bc.width,H=bc.height;
 bx.clearRect(0,0,W,H);bx.strokeStyle='#fff';bx.lineWidth=1;let x=W*(0.2+Math.random()*0.6),y=0;bx.beginPath();bx.moveTo(x,y);
 const br=[];while(y<H*0.85){x+=(Math.random()-.5)*W*0.08;y+=H*(0.03+Math.random()*0.05);bx.lineTo(Math.round(x),Math.round(y));if(Math.random()<.18)br.push([x,y])}
 bx.stroke();br.forEach(([sx,sy])=>{bx.beginPath();bx.moveTo(sx,sy);let X=sx,Y=sy;for(let k=0;k<5;k++){X+=(Math.random()-.5)*W*0.07;Y+=H*0.03;bx.lineTo(Math.round(X),Math.round(Y))}bx.stroke()});
