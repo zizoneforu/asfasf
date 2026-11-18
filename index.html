@@ -50,9 +50,11 @@ ul.box li:last-child{margin:0}
 .m{font-size:12px;color:#8a8270;line-height:2.1}
 .row{display:flex;justify-content:space-between;font-size:13px;line-height:2.1;max-width:300px;margin:0 auto}
 .row.off{color:#5e584c}
-.btn{display:inline-block;color:#dfd5bc;text-decoration:none;font-size:15px;letter-spacing:10px;padding:8px 18px 8px 28px;border:2px solid #dfd5bc;border-radius:20px;cursor:pointer;transition:color .5s ease-out,border-color .5s ease-out}
+.btn{display:inline-block;color:#dfd5bc;text-decoration:none;font-size:15px;letter-spacing:10px;padding:12px 18px 12px 28px;border:2px solid #dfd5bc;border-radius:20px;cursor:pointer;transition:color .5s ease-out,border-color .5s ease-out}
 .btn:hover{color:#fff;border-color:#fff}
-#msg{font-size:11px;color:#6e6858;margin-top:12px;min-height:14px;letter-spacing:1px}
+#msg{position:absolute;left:0;right:0;bottom:10px;font-size:11px;color:#6e6858;letter-spacing:1px;text-align:center}
+ul.box li:has(#buy){display:flex;align-items:center;justify-content:center;min-height:68px;letter-spacing:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;line-height:1}
 ::selection{background:transparent;color:#e6e6e6}
 </style></head><body class="locked">
 <div id="gate"><div class="g1">弘大救援計劃</div><div class="g2 blink">ＣＬＩＣＫ　ＴＯ　ＥＮＴＥＲ</div></div>
@@ -62,7 +64,6 @@ ul.box li:last-child{margin:0}
 <section id="hero">
 <div class="title fade d1">LIVE : VUSGLACKS &amp; MILLENNIUM</div>
 <canvas id="flag" class="px fade d1"></canvas>
-<div class="fade d2 serif" style="font-size:clamp(28px,6vw,52px);letter-spacing:.14em;color:#e6e6e2">弘大救援計劃</div>
 <div class="sub fade d4" style="margin-top:30px"><span class="blink">▼</span></div>
 </section>
 
@@ -70,8 +71,6 @@ ul.box li:last-child{margin:0}
 <section id="booth">
 
 <ul class="box">
-<li><span class="c tl blink">┏</span><span class="c tr blink">┓</span><span class="c bl blink">┗</span><span class="c br blink">┛</span>
-<div class="h serif" style="font-size:28px;letter-spacing:.16em;margin-right:-.16em">弘大救援計劃</div></li>
 <li><span class="c tl blink">┏</span><span class="c tr blink">┓</span><span class="c bl blink">┗</span><span class="c br blink">┛</span>
 <a class="btn" id="buy">예매</a><div id="msg"></div></li>
 </ul>
